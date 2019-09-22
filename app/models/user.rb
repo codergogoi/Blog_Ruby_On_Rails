@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :articles # add this to maintain association
+  has_many :articles, dependent: :destroy # add this to maintain association
   before_save { self.email = email.downcase }
   #validation
   validates :username, presence: true,
